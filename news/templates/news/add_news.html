@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add news</title>
+</head>
+<body>
+    <form action="{% url 'news:add_news' %}" method="post">
+        {% csrf_token %}
+        <label for="title">Title: </label>
+        <input type="text" id = "title" name="title">
+        <br>
+        <label for="content">Content: </label>
+        <input type="text" id = "content" name="content">
+        <br>
+
+        <input type="submit" value="News">
+
+    </form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Comment Content</title>
+</head>
+<body>
+    <ul>
+        <h3>
+            {{news.title}}
+        </h3>
+        <h4>comment: {{news.content}}</h4>
+        <h4>created time: {{news.created_at}}</h4>
+
+    </ul>
+    <li><h4>Коментари</h4></li>
+    {% for comment in news.comments_set.all %}
+        <p>{{comment}}</p><br>
+    {% endfor %}
+    <form action="{% url 'news:add_comment' %}" method="post">
+        {% csrf_token %}
+        <label for="content">Content: </label>
+        <input type="text" id = "content" name="content">
+        <input type="hidden" name="news_id" value="{{ news.id }}">
+        <br>
+
+        <input type="submit" value="add Comment">
+
+    </form>
+
+</body>
+</html>

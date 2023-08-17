@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"  content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>News</title>
+</head>
+<body>
+    <ol>
+        <a href="{% url 'news:news_form' %}">add news</a>
+        {% for new in news %}
+        <li>
+            <a href="{% url 'news:detail' new.id %}">
+                {{ new.title }}
+            </a>
+        </li>
+        {% endfor %}
+    </ol>
+
+</body>
+</html>
