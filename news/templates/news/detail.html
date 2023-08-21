@@ -14,7 +14,7 @@
 
     </ul>
     <li><h4>Коментари</h4></li>
-    {% for comment in news.comments_set.all %}
+    {% for comment in comments %}
         <p>{{comment}}</p><br>
     {% endfor %}
     <form action="{% url 'news:add_comment' %}" method="post">

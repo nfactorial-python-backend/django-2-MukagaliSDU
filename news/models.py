@@ -13,6 +13,10 @@ class News(models.Model):
     def __str__(self):
         return self.title
 
+    def has_comments(self):
+        comments = Comments.objects.filter(news=self).all()
+        return comments.exists()
+
 
 class Comments(models.Model):
     content = models.TextField()

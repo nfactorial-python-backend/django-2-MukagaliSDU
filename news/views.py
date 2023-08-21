@@ -17,8 +17,8 @@ def index(request):
 
 def detail(request, news_id):
     news = get_object_or_404(News, pk=news_id)
-
-    context = {"news": news}
+    comments = news.comments_set.all().order_by('-created_at')
+    context = {"news": news, "comments": comments}
     return render(request, "news/detail.html", context)
 
 
